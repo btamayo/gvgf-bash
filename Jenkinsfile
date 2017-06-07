@@ -9,8 +9,9 @@ pipeline {
       }
     }
 
-    def test_image
     stage('Build Test Env') {
+     def test_image
+
       steps {
         test_image = docker.build('gvgf:latest -f Dockerfile', '.')
       }
