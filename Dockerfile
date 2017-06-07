@@ -13,6 +13,6 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E03280
 	&& echo "deb http://download.mono-project.com/repo/debian jessie main" | tee /etc/apt/sources.list.d/mono-official.list \
 	&& apt-get -y update
 
-RUN apt-get -y install mono-complete
+RUN apt-get -y install mono-complete libcurl3
 
 CMD ["pytest"]
