@@ -12,12 +12,14 @@ pipeline {
     }
     stage('Build Test Env') {
       steps {
-        docker.build('gvgf:latest', '-f Dockerfile .')
+        test_image = docker.build('gvgf:latest -f Dockerfile', '.')
       }
     }
     stage('Pytest') {
       steps {
-        sh 'pytest'
+        test_image.inside {
+        	sh 'pytest'
+        }
       }
     }
   }
