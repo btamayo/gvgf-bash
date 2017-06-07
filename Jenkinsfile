@@ -4,7 +4,9 @@ pipeline {
   agent any
   stages {
     stage('Build Test Env') {
-      build_image('gvgf', 'latest', 'Dockerfile')
+      steps {
+        build_image('gvgf', 'latest', 'Dockerfile')
+      }
     }
     stage('Pull repository') {
       steps {
