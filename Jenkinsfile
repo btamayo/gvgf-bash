@@ -6,7 +6,9 @@ pipeline {
     stage('Initialize environment') {
       steps {
         checkout([$class: 'GitSCM', branches: [[name: '**']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '134d1586-2a3b-4dee-8118-7376c7b4a069', url: 'https://github.com/btamayo/gvgf']]])
-        load 'Jenkinsfile-Scripted'
+        script {
+	        load 'Jenkinsfile-Scripted'
+        }
       }
     }    
   }
