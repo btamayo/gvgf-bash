@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 def test_image
 
 pipeline {
@@ -10,7 +12,7 @@ pipeline {
     }
     stage('Build Test Env') {
       steps {
-        test_image = docker.build('gvgf:latest', '-f Dockerfile .')
+        docker.build('gvgf:latest', '-f Dockerfile .')
       }
     }
     stage('Pytest') {
