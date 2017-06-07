@@ -14,5 +14,3 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E03280
 	&& apt-get -y update
 
 RUN apt-get -y install mono-complete libcurl3
-
-CMD ["pytest"]
