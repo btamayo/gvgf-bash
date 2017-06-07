@@ -10,6 +10,7 @@ node {
     	def test_image = docker.build('python_test', ' -f Dockerfile .')
     	test_image.inside {
     		sh('pytest')
+            // @TODO: Pytest exit code 5 means no tests were found
     	}
     }
 }
