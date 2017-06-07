@@ -7,7 +7,7 @@ node {
     }
     stage('Build Test Docker Image') {
     	// The last param always has to be the context
-    	def test_image = docker.build('python_test', ' -f Dockerfile', '.')
+    	def test_image = docker.build('python_test', ' -f Dockerfile .')
     	test_image.inside {
     		sh('pytest')
     	}
