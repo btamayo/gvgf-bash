@@ -15,6 +15,7 @@ node {
 
     stage('Run tests inside test image') {
         test_image.inside {
+            sh(returnStdout: true, script: 'mono GitVersion_3.6.5/GitVersion.exe')
             sh('pytest')
             // @TODO: Pytest exit code 5 means no tests were found
         }
