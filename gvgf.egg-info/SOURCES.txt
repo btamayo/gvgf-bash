@@ -1,7 +1,0 @@
-setup.py
-gvgf/__init__.py
-gvgf.egg-info/PKG-INFO
-gvgf.egg-info/SOURCES.txt
-gvgf.egg-info/dependency_links.txt
-gvgf.egg-info/not-zip-safe
-gvgf.egg-info/top_level.txt
