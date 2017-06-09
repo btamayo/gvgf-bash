@@ -5,6 +5,8 @@ RUN mkdir -p app
 WORKDIR app/
 COPY . app/
 
+ARG DEBIAN_FRONTED=noninteractive
+
 # Install required testing frameworks
 RUN pip install -U pylint pytest
 
