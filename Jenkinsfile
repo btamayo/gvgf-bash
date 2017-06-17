@@ -21,7 +21,6 @@ node {
       gitversion_json = sh(returnStdout: true, script: 'mono GitVersion_3.6.5/GitVersion.exe')
       echo gitversion_json
       sh('./setup_gitversion.sh')
-      sh('cat $HOME/.bash_profile')
       sh('cd gvgf/tests')
       sh('./init_run.sh')
       // @TODO: Pytest exit code 5 means no tests were found
