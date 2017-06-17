@@ -3,6 +3,6 @@
 if [ "$DOCKER_ENV" = "1" ]
 then
   # PWD is project root
-  echo "alias gitversion='mono \"$(pwd)\"/GitVersion_3.6.5/GitVersion.exe'\" >> ~/.bashrc"
+  echo "alias gitversion='mono \"$(pwd)\"/GitVersion_3.6.5/GitVersion.exe'\" >> /root/.bashrc"
   cat ~/.bashrc
 fi
