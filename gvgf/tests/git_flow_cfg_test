@@ -1,0 +1,12 @@
+[gitflow "branch"]
+	master = stable
+	develop = master
+[gitflow "prefix"]
+	feature = feature/
+	bugfix = bugfix/
+	release = r/
+	hotfix = hotfix/
+	support = support/
+	versiontag = v
+[gitflow "path"]
+	hooks = /Users/btamayo/Development/git-flow-hooks/

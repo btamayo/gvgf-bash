@@ -1,0 +1,9 @@
+.semver
+!**/*.tmp
+git_flow_cfg_test
+GitVersion.yml
+*.sh
+*.py
+*.ini
+tests/*
+.tox/
