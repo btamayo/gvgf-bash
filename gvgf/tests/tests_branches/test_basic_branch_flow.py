@@ -1,8 +1,7 @@
 import pytest
 
 from pytest_bdd import scenario, given, when, then
-import helpers as helpers
-from helpers import *
+import gvgf.tests.helpers as helpers
 
 @pytest.mark.incremental
 @pytest.mark.usefixtures("delete_git", "reinit_git_script", "pre_start_branch")
