@@ -27,9 +27,7 @@ node {
       sh('pytest --junitxml=report.xml')
     }
     post {
-        always {
-            junit 'build/reports/**/*.xml'
-        }
+        junit 'reports/**/*.xml'
     }
   }
 }
