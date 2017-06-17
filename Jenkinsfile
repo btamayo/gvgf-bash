@@ -25,7 +25,7 @@ node {
       echo sh('pwd')
       echo sh('ls -Al')
       sh('pytest --junitxml=report.xml')
-      junit 'reports/**/*.xml'
+      junit '*.xml'
     }
   }
 }
