@@ -22,6 +22,7 @@ node {
       echo gitversion_json
       sh('./setup_docker_testenv.sh')
       // @TODO: Pytest exit code 5 means no tests were found
+      echo sh('pwd')
       sh('pylint')
     }
   }

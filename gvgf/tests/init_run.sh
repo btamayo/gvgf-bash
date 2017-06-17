@@ -20,7 +20,7 @@ function new_directory()
 }
 
 echo 'Printing pwd'
-echo pwd
+echo `pwd`
 echo 'Printing directory contents'
 ls -Al
 mkdir -p run_dir || true
