@@ -16,13 +16,14 @@ node {
     }
   }
 
-  stage('Setup tests inside test image') {
+  stage('Test') {
     test_image.inside {
       gitversion_json = sh(returnStdout: true, script: 'mono GitVersion_3.6.5/GitVersion.exe')
       echo gitversion_json
       sh('./setup_docker_testenv.sh')
       // @TODO: Pytest exit code 5 means no tests were found
       echo sh('pwd')
+      echo sh('ls -Al')
       sh('pylint')
     }
   }
