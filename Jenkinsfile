@@ -26,8 +26,9 @@ node {
   }
 
   stage('Run pylint') {
-    test_image.inside {
-      echo sh('pwd')
+    test_image.inside
+      sh('gv')
+      sh('gitversion')
       sh('pylint')
     }
   }
