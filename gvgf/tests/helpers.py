@@ -32,7 +32,7 @@ def echo(func):
 class in_run_dir(ContextDecorator):
     def __enter__(self):
         savedPath = os.getcwd()
-        if savedPath.endswith('git_versioning'):
+        if savedPath.endswith('gvgf'):
             try:
                 os.chdir('run_dir')
                 print "Was in %s, running now in %s" % (savedPath, os.getcwd())
@@ -72,7 +72,7 @@ def get_full_semver_expected(branch_name, tag_prefix, commits_made=None, mode="d
 @echo
 def print_semver_summary():
     try:
-        out = subprocess.check_output(['./bash_utils.sh call_gitversion'], shell=True)
+        out = subprocess.check_output(['../bash_utils.sh call_gitversion'], shell=True)
         gv_json = json.loads(out)
         print "SemVer: %s" % gv_json["SemVer"]
         print "FullSemVer: %s" % gv_json["FullSemVer"]
@@ -91,7 +91,7 @@ def print_semver_summary():
 @echo
 def gv(key=None):
     try:
-        out = subprocess.check_output(['./bash_utils.sh call_gitversion'], shell=True)
+        out = subprocess.check_output(['../bash_utils.sh call_gitversion'], shell=True)
         gv_json = json.loads(out)
         if key:
             return gv_json[key]
@@ -177,7 +177,7 @@ def get_branch_prefix():
 @echo
 def reinit_git_script():
     try:
-        subprocess.call(['./bash_utils.sh', 'reinit_git'])
+        subprocess.call(['../bash_utils.sh', 'reinit_git'])
     except:
         pass
 
