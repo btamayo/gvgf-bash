@@ -20,7 +20,11 @@ node {
     test_image.inside {
       gitversion_json = sh(returnStdout: true, script: 'mono GitVersion_3.6.5/GitVersion.exe')
       echo gitversion_json
-      sh('gvgf/tests/init_run.sh')
+      sh("echo \"alias gitversion='mono \"$(pwd)\"/GitVersion_3.6.5/GitVersion.exe'\" >> ~/.bash_profile")
+      sh("echo \"alias gv='gitversion'\" >> ~/.bash_profile")
+      sh('cat ~/.bash_profile')
+      sh('cd gvgf/tests')
+      sh('./init_run.sh')
       // @TODO: Pytest exit code 5 means no tests were found
     }
   }

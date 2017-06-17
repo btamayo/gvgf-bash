@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Run from tests root 
+# Run from project root
 
 # This sets up the project folder so that we can update git-related items in the project
 # Symlink all of the things that need to be called from the project into run_dir
@@ -28,15 +28,16 @@ ln -sf `pwd`/project_gitignore `pwd`/run_dir/.gitignore
 ln -sf `pwd`/git_flow_cfg_test `pwd`/run_dir/git_flow_cfg_test
 
 if [ "$DOCKER_ENV" = "1" ]
+then
     # Git Flow
     echo "Inside docker container"
     echo "alias gffs='git flow feature start'
-    alias gfff='git flow feature finish'
-    alias gfrs='git flow release start'
-    alias gfrf='git flow release finish'
-    alias gfhs='git flow hotfix start'
-    alias gfhf='git flow hotfix finish'
-    alias gfbs='git flow bugfix start'
-    alias gfbf='git flow bugfix finish'
-    alias gv='gitversion'" >> ~/.bash_profile
+alias gfff='git flow feature finish'
+alias gfrs='git flow release start'
+alias gfrf='git flow release finish'
+alias gfhs='git flow hotfix start'
+alias gfhf='git flow hotfix finish'
+alias gfbs='git flow bugfix start'
+alias gfbf='git flow bugfix finish'
+alias gv='gitversion'" >> ~/.bash_profile
 fi

@@ -14,3 +14,5 @@ RUN apt-get -y install mono-complete libcurl3
 
 # Install required testing frameworks
 RUN pip install -U pylint pytest virtualenv
+
+ENV DOCKER_ENV=1
