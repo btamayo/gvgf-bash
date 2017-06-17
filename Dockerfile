@@ -13,6 +13,6 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E03280
 RUN apt-get -y install mono-complete libcurl3
 
 # Install required testing frameworks
-RUN pip install -U pylint pytest virtualenv pytest-bdd pytest-catchlog pytest-xdist
+RUN pip install -U pylint pytest virtualenv pytest-bdd pytest-catchlog pytest-xdist contextlib2
 
 ENV DOCKER_ENV=1
