@@ -16,10 +16,6 @@ node {
     }
   }
 
-  // stage('Build Test Docker Image') {
-  //   test_image = docker.build('python_test', ' -f Dockerfile .')
-  // }
-
   stage('Run tests inside test image') {
     test_image.inside {
       gitversion_json = sh(returnStdout: true, script: 'mono GitVersion_3.6.5/GitVersion.exe')
