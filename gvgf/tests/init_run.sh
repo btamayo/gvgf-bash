@@ -19,6 +19,10 @@ function new_directory()
   cp setup.py $CDIR
 }
 
+echo 'Printing pwd'
+echo pwd
+echo 'Printing directory contents'
+ls -Al
 ln -sf `pwd`/tox.ini `pwd`/run_dir/tox.ini
 ln -sf `pwd`/helpers.py `pwd`/run_dir/helpers.py
 ln -sf `pwd`/GitVersion.yml `pwd`/run_dir/GitVersion.yml
