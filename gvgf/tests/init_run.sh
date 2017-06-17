@@ -30,8 +30,11 @@ ln -sf `pwd`/git_flow_cfg_test `pwd`/run_dir/git_flow_cfg_test
 if [ "$DOCKER_ENV" = "1" ]
 then
     # Git Flow
+    sh("echo \"alias gitversion='mono \"${(pwd)}\"/GitVersion_3.6.5/GitVersion.exe'\" >> ~/.bash_profile")
+    sh("echo \"alias gv='gitversion'\" >> ~/.bash_profile")
     echo "Inside docker container"
-    echo "alias gffs='git flow feature start'
+    echo "
+alias gffs='git flow feature start'
 alias gfff='git flow feature finish'
 alias gfrs='git flow release start'
 alias gfrf='git flow release finish'
