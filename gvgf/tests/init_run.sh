@@ -23,6 +23,7 @@ echo 'Printing pwd'
 echo pwd
 echo 'Printing directory contents'
 ls -Al
+mkdir -p run_dir || true
 ln -sf `pwd`/tox.ini `pwd`/run_dir/tox.ini
 ln -sf `pwd`/helpers.py `pwd`/run_dir/helpers.py
 ln -sf `pwd`/GitVersion.yml `pwd`/run_dir/GitVersion.yml
@@ -34,8 +35,6 @@ ln -sf `pwd`/git_flow_cfg_test `pwd`/run_dir/git_flow_cfg_test
 if [ "$DOCKER_ENV" = "1" ]
 then
     # Git Flow
-    sh("echo \"alias gitversion='mono \"${(pwd)}\"/GitVersion_3.6.5/GitVersion.exe'\" >> /root/.bashrc")
-    sh("echo \"alias gv='gitversion'\" >> /root/.bashrc")
     echo "Inside docker container"
     echo "
 alias gffs='git flow feature start'
