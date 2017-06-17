@@ -6,7 +6,7 @@ The goal of this project is to integrate [git-flow-hooks]() with  [GitVersion]()
 
 [https://github.com/petervanderdoes/gitflow-avh](https://github.com/petervanderdoes/gitflow-avh)
 
-Here's a basic introduction to git-flow: 
+Here's a basic introduction to git-flow:
 [https://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/](https://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
 
 ---
@@ -17,7 +17,7 @@ Here's a basic introduction to git-flow:
 
 * Prevent direct commits to the master branch.
 * Prevent merge marker commits.
-* Automatically bump versions when starting a release or hotfix. 
+* Automatically bump versions when starting a release or hotfix.
 * Versions are generated, written to file and committed.
 * Automatically specify tag messages.
 
@@ -43,13 +43,13 @@ The way that it determines the version number is the following:
 	```
 	git flow release start 1.2.3  # Will use 1.2.3
 	```
-	
+
 	2. Check if there's a version in the tags.
 	3. Check if there's a version-file and read it. The file is named `VERSION`.
 		4. If there is no version file, create one and assume the version is 0.0.0.
-2. Otherwise, determine the level of the version bump. 
+2. Otherwise, determine the level of the version bump.
 	2. The user can provide the version bump level by passing in the version bump level:
-	3. 
+	3.
 	```
 	git flow bump minor # Will bump a minor level 0.1.3 -> 0.2.0
 	```
@@ -59,14 +59,14 @@ The way that it determines the version number is the following:
 
 ## GitVersion
 
-GitVersion is a module that automatically calculates a semantic version at any point in time in a specific branch and commit. It uses a combination of tags, commit SHAs and specified user configuration to determine the next version number, which is customizable per-branch. While the details are beyond the scope of this README, more information can be found here: [https://gitversion.readthedocs.io](https://gitversion.readthedocs.io). It's important to node that GitVersion's CLI only determines the calculated semantic version. It does not automatically bump versions, create commits or tags, or modify any files. 
+GitVersion is a module that automatically calculates a semantic version at any point in time in a specific branch and commit. It uses a combination of tags, commit SHAs and specified user configuration to determine the next version number, which is customizable per-branch. While the details are beyond the scope of this README, more information can be found here: [https://gitversion.readthedocs.io](https://gitversion.readthedocs.io). It's important to node that GitVersion's CLI only determines the calculated semantic version. It does not automatically bump versions, create commits or tags, or modify any files.
 
 ## gvgf
 
 The goal of GVGF is to integrate:
 
 - git-flow's branching model
-- git-flow-hooks and automatic version completion, and 
+- git-flow-hooks and automatic version completion, and
 - gitversion's semver calculation
 
 Therefore, the goal is to be able to run
@@ -78,3 +78,23 @@ git flow release start
 and invoke git-flow-hooks to read a version from gitversion's calculation, and then proceed with automatically branching and tagging as provided by git-flow.
 
 The advantage of this is to be able to provide an algorithmic, configurable, and flexible semantic versioning while using the robust and extensible branching model of git-flow. It eliminates the need to make a human determination of the "next version number" and instead applies a systematic calculation based on one configuration file.
+
+## Implementation:
+GVGF is a fork of git-flow-hooks. It changes its behavior such that it invokes GitVersion during the hook execution.
+
+### Dependencies:
+- Python 2.7
+- GitVersion
+
+### Installation:
+Once **gitversion is installed**, ensure that your git hooks point to @TODO
+
+Alternatively, you can also do:
+
+```
+brew install gvgf
+```
+
+### Basic Configuration:
+
+There is no configuration needed. However, in your project root, you can create `GitVersion.yaml` to configure GitVersion.
