@@ -45,5 +45,6 @@ alias gfhs='git flow hotfix start'
 alias gfhf='git flow hotfix finish'
 alias gfbs='git flow bugfix start'
 alias gfbf='git flow bugfix finish'
-alias gv='gitversion'" >> /root/.bashrc
+alias gv='gitversion'" >> aliases.sh
+  . aliases.sh
 fi
