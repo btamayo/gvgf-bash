@@ -9,15 +9,20 @@ node {
         echo sh(returnStdout: true, script: 'env')
     }
 
-  stage('Build Test Docker Image') {
-    test_image = docker.build('python_test', ' -f Dockerfile .')
-  }
+    stage('Pull test image from repo') {
+      test_image = docker.image('btamayo/python_test')
+      test_image.pull()
+    }
 
-  stage('Run tests inside test image') {
-      test_image.inside {
-          sh(returnStdout: true, script: 'mono GitVersion_3.6.5/GitVersion.exe')
-          sh('pytest')
-          // @TODO: Pytest exit code 5 means no tests were found
-      }
-  }
+    // stage('Build Test Docker Image') {
+    //   test_image = docker.build('python_test', ' -f Dockerfile .')
+    // }
+
+    stage('Run tests inside test image') {
+        test_image.inside {
+            sh(returnStdout: true, script: 'mono GitVersion_3.6.5/GitVersion.exe')
+            sh('pytest')
+            // @TODO: Pytest exit code 5 means no tests were found
+        }
+    }
 }
