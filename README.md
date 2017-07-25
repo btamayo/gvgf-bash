@@ -98,3 +98,10 @@ brew install gvgf
 ### Basic Configuration:
 
 There is no configuration needed. However, in your project root, you can create `GitVersion.yaml` to configure GitVersion.
+
+
+### Testing
+
+To setup and run tests:
+- cd `gvgf/tests && ./init_run.sh && pytest`
+- Run `pytest` from the `gvgf/gvgf/tests` directory

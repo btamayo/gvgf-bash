@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 
-function reinit_git()
-{
+reinit_git() {
 	git init
 	rm VERSION
 	# echo "Running gitversion init"
@@ -27,25 +26,21 @@ function reinit_git()
 	git checkout master
 }
 
-function delete_git()
-{
+delete_git() {
     rm -rf .git
 }
 
-function initial_commit()
-{
+initial_commit() {
 	git checkout master
 	git commit --allow-empty -m "Initial commit - from bash_utils.sh"
 }
 
-function call_gitversion()`
-{
+call_gitversion() {
     gitversion
 }
 
-# Clashes hotfix and feature branch
-function clash_hotfix()
-{
+# Clashes hotfix and feature branch 
+clash_hotfix() {
 	gffs ABC-001-hotfixclash
 	gv
 	git checkout master

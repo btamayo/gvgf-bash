@@ -2,6 +2,7 @@ import pytest
 
 from pytest_bdd import scenario, given, when, then
 import gvgf.tests.helpers as helpers
+from helpers import * # This is neeced for pytest to setup the fixtures defined in that file properly!
 
 @pytest.mark.incremental
 @pytest.mark.usefixtures("delete_git", "reinit_git_script", "pre_start_branch")

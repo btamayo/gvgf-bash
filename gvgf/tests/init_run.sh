@@ -8,29 +8,28 @@
 # Initialize git-flow with this branching model, default GitVersion.yaml, and needed files in a new directory
 
 # This packages the files needed to run a test execution
-function new_directory()
-{
+new_directory() {
   mkdir package
-  CDIR=`pwd`
-  cp tox.ini $CDIR
-  cp helpers.py $CDIR
-  cp GitVersion.yml $CDIR
-  cp bash_utils.sh $CDIR
-  cp setup.py $CDIR
+  CDIR="$PWD"
+  cp tox.ini "$CDIR"
+  cp helpers.py "$CDIR"
+  cp GitVersion.yml "$CDIR"
+  cp bash_utils.sh "$CDIR"
+  cp setup.py "$CDIR"
 }
 
 echo 'Printing pwd'
-echo `pwd`
+echo "$PWD"
 echo 'Printing directory contents'
 ls -Al
 mkdir -p run_dir || true
-ln -sf `pwd`/tox.ini `pwd`/run_dir/tox.ini
-ln -sf `pwd`/helpers.py `pwd`/run_dir/helpers.py
-ln -sf `pwd`/GitVersion.yml `pwd`/run_dir/GitVersion.yml
-ln -sf `pwd`/bash_utils.sh `pwd`/run_dir/bash_utils.sh
-ln -sf `pwd`/setup.py `pwd`/run_dir/setup.py
-ln -sf `pwd`/project_gitignore `pwd`/run_dir/.gitignore
-ln -sf `pwd`/git_flow_cfg_test `pwd`/run_dir/git_flow_cfg_test
+ln -sf "$PWD/tox.ini" "$PWD/run_dir/tox.ini"
+ln -sf "$PWD/helpers.py" "$PWD/run_dir/helpers.py"
+ln -sf "$PWD/GitVersion.yml" "$PWD/run_dir/GitVersion.yml"
+ln -sf "$PWD/bash_utils.sh" "$PWD/run_dir/bash_utils.sh"
+ln -sf "$PWD/setup.py" "$PWD/run_dir/setup.py"
+ln -sf "$PWD/project_gitignore" "$PWD/run_dir/.gitignore"
+ln -sf "$PWD/git_flow_cfg_test" "$PWD/run_dir/git_flow_cfg_test"
 
 if [ "$DOCKER_ENV" = "1" ]
 then

@@ -32,11 +32,11 @@ def echo(func):
 class in_run_dir(ContextDecorator):
     def __enter__(self):
         savedPath = os.getcwd()
-        if savedPath.endswith('gvgf'):
+        if savedPath.endswith('gvgf') or savedPath.endswith('gvgf/tests'):
             try:
                 os.chdir('run_dir')
                 print "Was in %s, running now in %s" % (savedPath, os.getcwd())
-            except:
+            except BaseException:
                 traceback.print_exc()
                 sys.exit(1)
         elif 'run_dir' in os.getcwd():
@@ -81,7 +81,6 @@ def print_semver_summary():
     except subprocess.CalledProcessError as e:
         print "Exception!"
         print e.output
-        pass
     except BaseException:
         # traceback.print_exc()
         pass
@@ -99,7 +98,6 @@ def gv(key=None):
     except subprocess.CalledProcessError as e:
         print "Exception!"
         print e.output
-        pass
     except BaseException:
         # traceback.print_exc()
         pass
