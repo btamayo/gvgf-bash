@@ -1,0 +1,6 @@
+
+gvgf.egg-info/
+gvgf/tests/__pycache__/
+.eggs
+dist/
+*.egg-info/
