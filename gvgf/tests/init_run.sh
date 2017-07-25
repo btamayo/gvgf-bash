@@ -31,11 +31,12 @@ ln -sf "$PWD/setup.py" "$PWD/run_dir/setup.py"
 ln -sf "$PWD/project_gitignore" "$PWD/run_dir/.gitignore"
 ln -sf "$PWD/git_flow_cfg_test" "$PWD/run_dir/git_flow_cfg_test"
 
-if [ "$DOCKER_ENV" = "1" ]
-then
+if [ "$DOCKER_ENV" = "1" ]; then
     # Git Flow
     echo "Inside docker container"
-    echo "
+    
+fi
+echo "
 alias gffs='git flow feature start'
 alias gfff='git flow feature finish'
 alias gfrs='git flow release start'
@@ -45,5 +46,5 @@ alias gfhf='git flow hotfix finish'
 alias gfbs='git flow bugfix start'
 alias gfbf='git flow bugfix finish'
 alias gv='gitversion'" >> aliases.sh
-  . aliases.sh
-fi
+source ./aliases.sh
+hash -r

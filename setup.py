@@ -17,5 +17,5 @@ setup(name='gvgf',
       packages=['gvgf'],
       zip_safe=False,
       dependency_links=['https://github.com/petervanderdoes/gitflow-avh'],
-      tests_require=['pytest', 'pytest-xdist', 'pytest-bdd'],
+      tests_require=['pytest', 'pytest-bdd'],
       setup_requires=['pytest-runner'])

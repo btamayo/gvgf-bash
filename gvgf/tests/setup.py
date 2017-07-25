@@ -7,5 +7,5 @@ setup(
    author='Bianca Tamayo',
    author_email='contact@biancatamayo.me',
    packages=['tests_tdd'],
-   install_requires=['pytest', 'nose', 'pytest-xdist', 'pytest-bdd', 'contextlib2', 'pytest-catchlog'],
+   install_requires=['pytest', 'nose', 'pytest-bdd', 'contextlib2', 'pytest-catchlog'],
 )

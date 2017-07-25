@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
+# This is used by the pytest suite to reset git state.
 
 reinit_git() {
 	git init
 	rm VERSION
 	# echo "Running gitversion init"
 	# gitversion init
-	echo "Running: git flow init"
-	git flow init -d
+
 	git checkout -b stable
 	git checkout -b master
+
+	echo "Running: git flow init"
+	git flow init -d
 
 	git flow config set master stable
 	git flow config set develop master
@@ -17,10 +20,10 @@ reinit_git() {
 	git config gitflow.hotfix.finish.message "Hotfix %tag%"
 	git config gitflow.release.finish.message "Release %tag%"
 	git config --local core.mergeoptions --no-edit
-	git config gitflow.path.hooks /Users/btamayo/Development/git-flow-hooks/
+	# git config gitflow.path.hooks /Users/btamayo/Development/git-flow-hooks/
 
 	# Since we initialized using default params, wwe need to delete 'develop' which was automatically created
-	git branch -D develop
+	# git branch -D develop
 
 	# Checkout master
 	git checkout master
