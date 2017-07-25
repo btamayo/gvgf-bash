@@ -175,7 +175,7 @@ def get_branch_prefix():
 @echo
 def reinit_git_script():
     try:
-        subprocess.call(['../bash_utils.sh', 'reinit_git'])
+        subprocess.call(['./bash_utils.sh', 'reinit_git'])
     except:
         pass
 

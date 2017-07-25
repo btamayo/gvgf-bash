@@ -7,3 +7,4 @@ GitVersion.yml
 *.ini
 tests/*
 .tox/
+**/*.cache*
