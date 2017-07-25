@@ -24,8 +24,7 @@ node {
       // @TODO: Pytest exit code 5 means no tests were found
       echo sh('pwd')
       echo sh('ls -Al')
-      echo $PYTHONPATH
-      sh('cd gvgf/tests && pytest --junitxml=report.xml')
+      sh('cd gvgf/tests && && ls -Al && pytest --junitxml=report.xml')
       junit '*.xml'
     }
   }
