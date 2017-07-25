@@ -1,0 +1,32 @@
+FROM haskell:8
+
+RUN apt-get update
+ENV DEBIAN_FRONTED=noninteractive
+
+# Install Mono for gitversion support
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
+    && echo "deb http://download.mono-project.com/repo/debian jessie main" | tee /etc/apt/sources.list.d/mono-official.list \
+    && apt-get -y update
+
+RUN apt-get update && apt-get install -y install mono-complete libcurl3 git-flow
+
+# runtime dependencies
+RUN apt-get update && apt-get install -y \
+	file \
+	build-essential \
+	wget \
+	curl \
+	vim \
+	make \
+	--no-install-recommends \
+	&& rm -rf /var/lib/apt/lists/*
+
+RUN cabal update && cabal install shellcheck
+
+RUN git clone https://github.com/sstephenson/bats.git && cd bats && ./install.sh /usr/local
+RUN mkdir bats-helpers
+RUN git clone https://github.com/ztombol/bats-support bats-helpers/bats-support
+RUN git clone https://github.com/ztombol/bats-assert bats-helpers/bats-assert
+RUN git clone https://github.com/ztombol/bats-file bats-helpers/bats-file
+
+CMD ["bats"]
