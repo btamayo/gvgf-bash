@@ -1,2 +1,0 @@
-GitVersion+GitFlow (GV+GF)
-~~~~~~~~~~~~~~~~~~~~~~~~~~

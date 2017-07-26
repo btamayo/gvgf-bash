@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skips="0" tests="1" time="0.020"><testcase classname="gvgf.tests.test_boilerplate" file="gvgf/tests/test_boilerplate.py" line="3" name="test_success" time="0.000791072845459"></testcase></testsuite>
