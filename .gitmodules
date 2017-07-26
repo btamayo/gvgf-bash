@@ -1,0 +1,3 @@
+[submodule "git-flow-hooks-bt"]
+	path = git-flow-hooks-bt
+	url = https://github.com/btamayo/git-flow-hooks-bt.git
