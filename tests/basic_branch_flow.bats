@@ -11,11 +11,6 @@ load_lib bats-file
 
 # ----------------------------------------------------------------
 
-setup() {
-	./init_run.sh
-	./bash_utils.sh reinit_git
-	cd run_dir
-}
 
 @test "addition using bca" {
 
